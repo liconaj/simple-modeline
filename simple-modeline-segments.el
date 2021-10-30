@@ -70,14 +70,15 @@ corresponding to the mode line clicked."
       (column-number-indicator-zero-based
        (5 " C%c")
        (5 " C%C")))))
-   ,(if (region-active-p)
-        (propertize (format "+%s"
-                            (apply #'+ (mapcar
-                                       (lambda (pos)
-                                         (- (cdr pos)
-                                            (car pos)))
-                                       (region-bounds))))
-                    'font-lock-face 'font-lock-variable-name-face))))
+   ;; ,(if (region-active-p)
+   ;;      (propertize (format "+%s"
+   ;;                          (apply #'+ (mapcar
+   ;;                                     (lambda (pos)
+   ;;                                       (- (cdr pos)
+   ;;                                          (car pos)))
+   ;;                                     (region-bounds))))
+   ;;                  'font-lock-face 'font-lock-variable-name-face))
+   ))
 
 (defun simple-modeline-segment-vc ()
  "Displays color-coded version control information in the mode-line."
@@ -120,9 +121,9 @@ corresponding to the mode line clicked."
  "Displays the EOL style of the current buffer in the mode-line."
  (let* ((eol (coding-system-eol-type buffer-file-coding-system))
         (mnemonic (pcase eol
-                    ('0 ":")
-                    ('1 "(Dos)")
-                    ('2 "(Mac)")
+                    ('0 ":LF")
+                    ('1 ":CRLF")
+                    ('2 ":CR")
                     (_ "")))
         (desc (pcase eol
                 ('0 "Unix-style")

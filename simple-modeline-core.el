@@ -33,18 +33,33 @@
 ;; Options
 ;;
 
+;; (defcustom simple-modeline-segments
+;;   '((simple-modeline-segment-modified
+;;      simple-modeline-segment-buffer-name
+;;      simple-modeline-segment-position)
+;;     (simple-modeline-segment-minor-modes
+;;      simple-modeline-segment-input-method
+;;      simple-modeline-segment-eol
+;;      simple-modeline-segment-encoding
+;;      simple-modeline-segment-vc
+;;      simple-modeline-segment-misc-info
+;;      simple-modeline-segment-process
+;;      simple-modeline-segment-major-mode))
+;;   "Simple modeline segments."
+;;   :type '(list (repeat :tag "Left aligned" function)
+;;                (repeat :tag "Right aligned" function))
+;;   :package-version '(simple-modeline . "1.2"))
+
 (defcustom simple-modeline-segments
   '((simple-modeline-segment-modified
      simple-modeline-segment-buffer-name
      simple-modeline-segment-position)
-    (simple-modeline-segment-minor-modes
-     simple-modeline-segment-input-method
-     simple-modeline-segment-eol
-     simple-modeline-segment-encoding
-     simple-modeline-segment-vc
+    (simple-modeline-segment-vc
      simple-modeline-segment-misc-info
      simple-modeline-segment-process
-     simple-modeline-segment-major-mode))
+     simple-modeline-segment-major-mode
+     simple-modeline-segment-encoding
+     simple-modeline-segment-eol))
   "Simple modeline segments."
   :type '(list (repeat :tag "Left aligned" function)
                (repeat :tag "Right aligned" function))
