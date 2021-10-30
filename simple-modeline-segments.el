@@ -37,7 +37,7 @@ corresponding to the mode line clicked."
       (let* ((read-only (and buffer-read-only (buffer-file-name)))
              (modified (buffer-modified-p)))
         (propertize
-         (if read-only " " (if modified " ●" " ○"))
+         (if read-only "  " (if modified " ● " " ○ "))
          'face `(:inherit
                  ,(if modified 'simple-modeline-status-modified
                     (if read-only 'simple-modeline-status-error
@@ -120,9 +120,9 @@ corresponding to the mode line clicked."
  "Displays the EOL style of the current buffer in the mode-line."
  (let* ((eol (coding-system-eol-type buffer-file-coding-system))
         (mnemonic (pcase eol
-                    ('0 " LF")
-                    ('1 " CRLF")
-                    ('2 " CR")
+                    ('0 ":")
+                    ('1 "(Dos)")
+                    ('2 "(Mac)")
                     (_ "")))
         (desc (pcase eol
                 ('0 "Unix-style")
